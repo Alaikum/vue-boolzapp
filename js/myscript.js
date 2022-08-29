@@ -171,6 +171,7 @@ const app = new Vue({
         contatore: 0,
         classeAttiva: 'active',
         newSent: '',
+       
 
     },
     methods: {
@@ -199,10 +200,12 @@ const app = new Vue({
                     status: 'received',
                     date: stabilireOra(),
                 })
-
-
+                setTimeout(autoScrolling, 100)
+       
             }, 1000);
 
+            
+            
         },
 
 
@@ -226,4 +229,12 @@ function stabilireOra() {
     return datetime
 }
 
+function autoScrolling() {
+    const autoScroll = document.querySelector('.main__chat')
+    // const element = document.querySelector('.main__chat')
+    // const autoScroll=element.getAttribute("id")
+    // console.log(element)
+     autoScroll.scrollTo(0,autoScroll.scrollHeight);
+  
+}
 
