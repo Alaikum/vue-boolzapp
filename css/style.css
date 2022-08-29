@@ -18,6 +18,10 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+overflow: hidden;
+}
+
 .bg__header {
     background-color: #00A884;
     height: 105px;
@@ -49,14 +53,16 @@ html {
 
 .col__nav {
     background-color: white;
-    flex-basis: 34%;
+    flex-basis: 400px;
     border-right: 1px solid grey;
-
+    overflow-y: auto;
 }
 
 .col__chat {
 
-    flex-basis: 66%;
+   flex-grow: 1;
+   overflow-y: auto;
+
 }
 
 .header__nav {
@@ -150,6 +156,13 @@ html {
     display: flex;
     gap: 15px;
     padding: 10px;
+    border-top: 1px solid #dedede;
+ 
+}
+
+.contact:hover{
+    cursor: pointer;
+    background-color: rgb(219, 217, 217);
 }
 
 .active {
@@ -222,6 +235,7 @@ html {
 .main__chat {
     height: calc(100% - 120px);
     background-image: url(../assets/mine.jpg);
+    overflow: auto;
 }
 
 .all__chat{
@@ -230,10 +244,11 @@ html {
     gap: 20px;
     padding: 30px;
     
+    
 }
 
 .send__chat{
-    background-color: greenyellow;
+    background-color: #d5f0ba;
     border-radius: 15px;
     padding: 15px;
     width: 40%;

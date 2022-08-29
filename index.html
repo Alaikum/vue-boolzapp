@@ -16,7 +16,7 @@
         rel="stylesheet">
 </head>
 
-<body >
+<body>
     <header class="bg__header">
 
     </header>
@@ -57,21 +57,22 @@
                     <div class="chat__list">
                         <ul>
                             <li v-for="(contact,index) in contacts">
-                                <div class="contact" :class="[index===0 ?'active':'']">
-                                    <div class="image__contact">
-                                        <img :src=contact.img alt="NoPhoto">
+                                <div class="contact" :data-id="index" @click="selectedChat($event)"
+                                    :class="[index===contatore ? classeAttiva: '' ]">
+                                    <div class="image__contact" :data-id="index">
+                                        <img :src=`./assets/avatar${contact.avatar}.jpg` :data-id="index" alt="NoPhoto">
                                     </div>
 
-                                    <div class="info__contact">
-                                        <h3>{{contact.name}} {{index}} </h3>
-                                        <p>Ultimo messaggio inviato</p>
+                                    <div class="info__contact" :data-id="index">
+                                        <h3 :data-id="index">{{contact.name}}</h3>
+                                        <p :data-id="index">Ultimo messaggio inviato</p>
                                     </div>
-                                    <div class="time__contact">
+                                    <div class="time__contact" :data-id="index">
                                         12.00
                                     </div>
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
 
@@ -84,7 +85,7 @@
                         </div>
 
                         <div class="info__chat">
-                            <h4>Michele</h4>
+                            <h4>{{contacts[contatore].name}}</h4>
                             <p>Ultimo accesso oggi alle 12:00</p>
                         </div>
                         <div class="controls__chat">
@@ -95,15 +96,15 @@
                     </div>
                     <div class="main__chat">
 
-                        <ul class="all__chat">
-                            <li class="send__chat">
+                        <ul class="all__chat" v-for="(contact,index) in contacts[contatore].messages">
+                            <li  :class="[contact.status==='sent' ? 'send__chat': 'received__chat' ]" >
                                 <p>
-                                    Hai portato a spasso il cane?
+                                    {{contact.message}}
                                 </p>
-                                <p class="time__chat">15:30</p>
+                                <p class="time__chat"> {{contact.date}}</p>
                             </li>
-                            <li class="send__chat">
-                                <p >
+                            <!-- <li class="send__chat">
+                                <p>
                                     Ricorda di stendere i panni
                                 </p>
                                 <p class="time__chat">15:50</p>
@@ -113,7 +114,7 @@
                                     Tutto fatto!
                                 </p>
                                 <p class="time__chat">16:15</p>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>
