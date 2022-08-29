@@ -188,7 +188,24 @@ const app = new Vue({
             })
             this.newSent = ''
 
+            // risposta automatica, creo variabile che poi pusho 
+            // con setTimeout dopo 1 secondo 
+            let autoReply = this.contacts[i].messages
+            console.log(autoReply)
+
+            setTimeout(function () {
+                autoReply.push({
+                    message: 'ok',
+                    status: 'received',
+                    date: stabilireOra(),
+                })
+
+
+            }, 1000);
+
         },
+
+
     },
 })
 
@@ -208,3 +225,5 @@ function stabilireOra() {
     console.log(datetime)
     return datetime
 }
+
+
