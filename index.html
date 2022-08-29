@@ -55,25 +55,25 @@
                     </div>
 
                     <div class="chat__list">
-                        <ul>
-                            <li v-for="(contact,index) in contacts">
-                                <div class="contact" :data-id="index" @click="selectedChat($event)"
+                        <ul v-for="(contact, index) in contacts">
+                            <li>
+                                <div class="contact" @click="contatore=index"
                                     :class="[index===contatore ? classeAttiva: '' ]">
-                                    <div class="image__contact" :data-id="index">
-                                        <img :src=`./assets/avatar${contact.avatar}.jpg` :data-id="index" alt="NoPhoto">
+                                    <div class="image__contact">
+                                        <img :src=`./assets/avatar${contact.avatar}.jpg` alt="NoPhoto">
                                     </div>
-
-                                    <div class="info__contact" :data-id="index">
-                                        <h3 :data-id="index">{{contact.name}}</h3>
-                                        <p :data-id="index">Ultimo messaggio inviato</p>
+                                    <div class="info__contact">
+                                        <h3>{{contact.name}}</h3>
+                                        <p>Ultimo messaggio inviato</p>
                                     </div>
-                                    <div class="time__contact" :data-id="index">
+                                    <div class="time__contact">
                                         12.00
                                     </div>
                                 </div>
-                            </li>
 
+                            </li>
                         </ul>
+
                     </div>
 
                 </div>
@@ -97,7 +97,7 @@
                     <div class="main__chat">
 
                         <ul class="all__chat" v-for="(contact,index) in contacts[contatore].messages">
-                            <li  :class="[contact.status==='sent' ? 'send__chat': 'received__chat' ]" >
+                            <li :class="[contact.status==='sent' ? 'send__chat': 'received__chat' ]">
                                 <p>
                                     {{contact.message}}
                                 </p>

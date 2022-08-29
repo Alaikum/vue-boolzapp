@@ -173,22 +173,7 @@ const app = new Vue({
 
     },
     methods: {
-        selectedChat(event) {
-
-            console.log(event.target.dataset.id)
-            console.log(this.contatore)
-            this.contatore = event.target.dataset.id
-
-
-
-
-
-
-
-
-
-        },
+       
     },
 })
 
-console.log(app.contacts[0].name)

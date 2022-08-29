@@ -250,7 +250,7 @@ overflow: hidden;
 .send__chat{
     background-color: #d5f0ba;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
     width: 40%;
     align-self: flex-end;
     position: relative;
@@ -261,7 +261,7 @@ overflow: hidden;
 .received__chat{
     background-color: white;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
     width: 40%;
     align-self: flex-start;
     position: relative;
@@ -273,6 +273,7 @@ overflow: hidden;
     position: absolute;
     right: 10px;
     bottom: 2px;
+    padding-top: 5px;
 }
 
 
