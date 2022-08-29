@@ -9,6 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <title>BoolzApp</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -49,7 +52,25 @@
                         <input class="input__search" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
-                    <div class="chat__list"></div>
+                    <div class="chat__list">
+                        <ul>
+                            <li>
+                                <div class="contact active">
+                                    <div class="image__contact">
+                                        <img src="./assets/avatar_1.jpg" alt="NoPhoto">
+                                    </div>
+
+                                    <div class="info__contact">
+                                        <h3>Michele</h3>
+                                        <p>Ultimo messaggio inviato</p>
+                                    </div>
+                                    <div class="time__contact">
+                                        12.00
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
                 </div>
 

@@ -4,8 +4,18 @@
     box-sizing: border-box;
 }
 
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
 img {
     max-width: 100%;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
 }
 
 .bg__header {
@@ -36,7 +46,7 @@ img {
 }
 
 .col__nav {
-    background-color: beige;
+    background-color: white;
     flex-basis: 34%;
     border-right: 1px solid black;
 
@@ -53,7 +63,7 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 10px 16px;
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(219, 217, 217);
 
 }
 
@@ -61,10 +71,17 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+
+}
+
+.profile>h4 {
+    font-weight: 400;
 }
 
 .profile>img {
     width: 40px;
+    border-radius: 30px;
 
 }
 
@@ -92,9 +109,14 @@ img {
 
 }
 
+.text__notice>h4 {
+    font-weight: 400;
+}
+
 .text__notice>p {
     text-decoration: underline;
     color: grey;
+    font-size: 0.9rem;
 
 }
 
@@ -114,10 +136,41 @@ img {
     padding: 5px 0;
 }
 
-.button__search{
+.button__search {
     flex-basis: 17%;
 }
 
-.input__search{
+.input__search {
     flex-basis: 83%;
+}
+
+.contact {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+.active{
+    background-color: rgb(219, 217, 217);
+   
+}
+
+.image__contact>img {
+    max-width: 60px;
+    border-radius: 60px;
+    background-color: white;
+}
+
+.info__contact>h3 {
+    font-weight: 400;
+}
+
+.info__contact>p {
+    color: grey;
+    font-size: 0.9rem;
+
+}
+
+.time__contact {
+    margin-left: auto;
+    color: grey;
 }
