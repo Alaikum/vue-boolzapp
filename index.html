@@ -124,7 +124,11 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
                         <div class="input__chat">
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" 
+                            v-model="newSent"
+                            @keyup.enter="addMessage()"
+                            placeholder="Scrivi un messaggio">
+                            
                         </div>
                         <div class="microphone__chat"><i class="fa-solid fa-microphone"></i></div>
                     </div>

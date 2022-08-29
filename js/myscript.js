@@ -170,10 +170,41 @@ const app = new Vue({
         contacts,
         contatore: 0,
         classeAttiva: 'active',
+        newSent: '',
 
     },
     methods: {
-       
+        addMessage() {
+            console.log('aggiungi task')
+
+            this.newSent = this.newSent.trim()
+            const i = this.contatore
+            // se è stringa vuota esce e non esegue nulla
+            if (!this.newSent) return
+            this.contacts[i].messages.push({
+                message: this.newSent,
+                status: 'sent',
+                date: stabilireOra(),
+            })
+            this.newSent = ''
+
+        },
     },
 })
 
+
+// Stabilire orario e stampare prima il giorno 
+// poi il mese, l'anno, ora,minuti secondi 
+function stabilireOra() {
+
+    let currentdate = new Date();
+    let datetime = currentdate.getDate() + "/"
+        + (currentdate.getMonth() + 1) + "/"
+        + currentdate.getFullYear() + "  "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+
+    console.log(datetime)
+    return datetime
+}
