@@ -25,7 +25,7 @@ html {
 
 
 .bg__main {
-    background-color: rgb(220, 219, 209);
+    background-color: rgb(186, 186, 183);
     height: calc(100vh - 105px);
 }
 
@@ -45,15 +45,17 @@ html {
     height: 100%;
 }
 
+/* CSS COL__NAV */
+
 .col__nav {
     background-color: white;
     flex-basis: 34%;
-    border-right: 1px solid black;
+    border-right: 1px solid grey;
 
 }
 
 .col__chat {
-    background-color: blue;
+
     flex-basis: 66%;
 }
 
@@ -149,9 +151,10 @@ html {
     gap: 15px;
     padding: 10px;
 }
-.active{
+
+.active {
     background-color: rgb(219, 217, 217);
-   
+
 }
 
 .image__contact>img {
@@ -174,3 +177,112 @@ html {
     margin-left: auto;
     color: grey;
 }
+
+
+/* CSS COL__CHAT  */
+
+.header__chat {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px 6px;
+    background-color: rgb(219, 217, 217);
+
+}
+
+.info__chat {
+
+    margin-right: auto;
+    padding-left: 5px;
+
+}
+
+.info__chat>h4 {
+    font-weight: 400;
+}
+
+.image__chat>img {
+    width: 40px;
+    border-radius: 30px;
+
+}
+
+.info__chat>p {
+    color: grey;
+    font-size: 0.9rem;
+
+}
+
+.controls__chat {
+    color: grey;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.25rem;
+}
+
+.main__chat {
+    height: calc(100% - 120px);
+    background-image: url(../assets/mine.jpg);
+}
+
+.all__chat{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    
+}
+
+.send__chat{
+    background-color: greenyellow;
+    border-radius: 15px;
+    padding: 15px;
+    width: 40%;
+    align-self: flex-end;
+    position: relative;
+  
+ 
+}
+
+.received__chat{
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 40%;
+    align-self: flex-start;
+    position: relative;
+}
+
+.time__chat{
+    color: grey;
+    font-size: 0.75rem;
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+}
+
+
+.text__chat {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 6px;
+    background-color: rgb(219, 217, 217);
+    height: 60px;
+    justify-content: space-between;
+    color: rgb(75, 75, 75);
+    font-size: 1.25rem;
+    gap: 20px;
+
+}
+
+.input__chat {
+    flex-basis: 100%;
+}
+
+.input__chat>input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+}
+
