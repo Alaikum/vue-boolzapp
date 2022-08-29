@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/794b4bbca7.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
     <title>BoolzApp</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +16,12 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body >
     <header class="bg__header">
 
     </header>
 
-    <main class="bg__main">
+    <main class="bg__main" id="app">
 
         <div class="container">
             <div class="row">
@@ -56,14 +56,14 @@
 
                     <div class="chat__list">
                         <ul>
-                            <li>
-                                <div class="contact active">
+                            <li v-for="(contact,index) in contacts">
+                                <div class="contact" :class="[index===0 ?'active':'']">
                                     <div class="image__contact">
-                                        <img src="./assets/avatar_1.jpg" alt="NoPhoto">
+                                        <img :src=contact.img alt="NoPhoto">
                                     </div>
 
                                     <div class="info__contact">
-                                        <h3>Michele</h3>
+                                        <h3>{{contact.name}} {{index}} </h3>
                                         <p>Ultimo messaggio inviato</p>
                                     </div>
                                     <div class="time__contact">
@@ -71,6 +71,7 @@
                                     </div>
                                 </div>
                             </li>
+                            
                         </ul>
                     </div>
 
