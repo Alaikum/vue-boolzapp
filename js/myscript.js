@@ -169,44 +169,61 @@ const app = new Vue({
     data: {
         contacts,
         contatore: 0,
+        activeContact: contacts[0],
         classeAttiva: 'active',
         newSent: '',
-       
+        inputSearch: '',
+
 
     },
+
+    computed: {
+        filteredList() {
+            return this.contacts.filter(el => {
+             
+
+                return el.name.toLowerCase().includes(this.inputSearch.trim().toLowerCase())
+            })
+        }
+    },
+
     methods: {
         addMessage() {
             console.log('aggiungi task')
 
             this.newSent = this.newSent.trim()
-            const i = this.contatore
+            const elMessage = this.activeContact
             // se è stringa vuota esce e non esegue nulla
             if (!this.newSent) return
-            this.contacts[i].messages.push({
+            elMessage.messages.push({
+                date: stabilireOra(),
                 message: this.newSent,
                 status: 'sent',
-                date: stabilireOra(),
             })
             this.newSent = ''
 
+
             // risposta automatica, creo variabile che poi pusho 
             // con setTimeout dopo 1 secondo 
-            let autoReply = this.contacts[i].messages
-            console.log(autoReply)
+            // let autoReply = this.contacts[i].messages
+            // console.log(autoReply)
 
-            setTimeout(function () {
-                autoReply.push({
+
+            // arrow function per non perdere il this 
+            setTimeout(() => {
+                elMessage.messages.push({
                     message: 'ok',
                     status: 'received',
                     date: stabilireOra(),
                 })
                 setTimeout(autoScrolling, 100)
-       
+                // autoScrolling()
             }, 1000);
 
-            
-            
+
+
         },
+
 
 
     },
@@ -234,7 +251,7 @@ function autoScrolling() {
     // const element = document.querySelector('.main__chat')
     // const autoScroll=element.getAttribute("id")
     // console.log(element)
-     autoScroll.scrollTo(0,autoScroll.scrollHeight);
-  
+    autoScroll.scrollTo(0, autoScroll.scrollHeight);
+
 }
 

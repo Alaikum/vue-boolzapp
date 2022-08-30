@@ -51,16 +51,17 @@
                     <div class="search">
                         <button class="button__search"> <i class="fa-solid fa-magnifying-glass"></i></button>
 
-                        <input class="input__search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input class="input__search" v-model="inputSearch" type="text"
+                            placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                     <div class="chat__list">
-                        <ul v-for="(contact, index) in contacts">
+                        <ul v-for="(contact, index) in filteredList">
                             <li>
-                                <div class="contact" @click="contatore=index"
-                                    :class="[index===contatore ? classeAttiva: '' ]">
+                                <div class="contact" @click="activeContact=contact"
+                                    :class="[contact===activeContact ? classeAttiva: '' ]">
                                     <div class="image__contact">
-                                        <img :src=`./assets/avatar${contact.avatar}.jpg` alt="NoPhoto">
+                                        <img :src="`./assets/avatar${contact.avatar}.jpg`" alt="NoPhoto">
                                     </div>
                                     <div class="info__contact">
                                         <h3>{{contact.name}}</h3>
@@ -81,11 +82,12 @@
                 <div class="col__chat">
                     <div class="header__chat">
                         <div class="image__chat">
-                            <img src="./assets/avatar_1.jpg" alt="NoPhoto">
+                            <img :src="`./assets/avatar${activeContact.avatar}.jpg`" alt="NoPhoto">
                         </div>
 
                         <div class="info__chat">
-                            <h4>{{contacts[contatore].name}}</h4>
+                       
+                            <h4>{{activeContact.name}}</h4>
                             <p>Ultimo accesso oggi alle 12:00</p>
                         </div>
                         <div class="controls__chat">
@@ -96,7 +98,7 @@
                     </div>
                     <div class="main__chat">
 
-                        <ul class="all__chat" v-for="(contact,index) in contacts[contatore].messages">
+                        <ul class="all__chat" v-for="(contact,index) in activeContact.messages">
                             <li :class="[contact.status==='sent' ? 'send__chat': 'received__chat' ]">
                                 <p>
                                     {{contact.message}}
@@ -124,11 +126,9 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
                         <div class="input__chat">
-                            <input type="text" 
-                            v-model="newSent"
-                            @keyup.enter="addMessage()"
-                            placeholder="Scrivi un messaggio">
-                            
+                            <input type="text" v-model="newSent" @keyup.enter="addMessage()"
+                                placeholder="Scrivi un messaggio">
+
                         </div>
                         <div class="microphone__chat"><i class="fa-solid fa-microphone"></i></div>
                     </div>
